@@ -52,6 +52,8 @@
             this.buttonDone = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -71,37 +73,41 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quitTrayOption,
-            this.openTrayOption,
+            this.toolStripSeparator2,
             this.loginTrayOption,
-            this.logoutTrayOption});
+            this.logoutTrayOption,
+            this.toolStripSeparator1,
+            this.openTrayOption});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(176, 124);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 169);
             // 
             // quitTrayOption
             // 
+            this.quitTrayOption.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.quitTrayOption.Name = "quitTrayOption";
-            this.quitTrayOption.Size = new System.Drawing.Size(175, 30);
+            this.quitTrayOption.Size = new System.Drawing.Size(211, 30);
             this.quitTrayOption.Text = "Afsluiten";
             this.quitTrayOption.Click += new System.EventHandler(this.quitTrayOption_Click);
             // 
             // openTrayOption
             // 
+            this.openTrayOption.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.openTrayOption.Name = "openTrayOption";
-            this.openTrayOption.Size = new System.Drawing.Size(175, 30);
+            this.openTrayOption.Size = new System.Drawing.Size(211, 30);
             this.openTrayOption.Text = "Openen";
             this.openTrayOption.Click += new System.EventHandler(this.openTrayOption_Click);
             // 
             // loginTrayOption
             // 
             this.loginTrayOption.Name = "loginTrayOption";
-            this.loginTrayOption.Size = new System.Drawing.Size(175, 30);
+            this.loginTrayOption.Size = new System.Drawing.Size(211, 30);
             this.loginTrayOption.Text = "Inloggen";
             this.loginTrayOption.Click += new System.EventHandler(this.loginTrayOption_Click);
             // 
             // logoutTrayOption
             // 
             this.logoutTrayOption.Name = "logoutTrayOption";
-            this.logoutTrayOption.Size = new System.Drawing.Size(175, 30);
+            this.logoutTrayOption.Size = new System.Drawing.Size(211, 30);
             this.logoutTrayOption.Text = "Uitloggen";
             this.logoutTrayOption.Click += new System.EventHandler(this.logoutTrayOption_Click);
             // 
@@ -325,6 +331,16 @@
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(208, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(208, 6);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -387,6 +403,8 @@
         private System.Windows.Forms.ToolStripMenuItem logoutTrayOption;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

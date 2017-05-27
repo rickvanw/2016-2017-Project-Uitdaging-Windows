@@ -97,7 +97,7 @@ namespace WindowsFormsApp1
         private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
         {
             showExerciseForm();
-
+            Console.WriteLine("balloon");
         }
 
         /**
@@ -109,6 +109,7 @@ namespace WindowsFormsApp1
             if (e.Button == MouseButtons.Left)
             {
                 showExerciseForm();
+                Console.WriteLine("notify");
 
             }
         }

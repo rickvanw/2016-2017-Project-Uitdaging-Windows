@@ -120,15 +120,17 @@ namespace WindowsFormsApp1
                 if (!content.Equals(null))
                 {
                         
+                    // If timeout
+                    if (numericStatusCode == 0)
+                    {
+                        errorMessageText.Text = "Geen verbinding met de server, neem contact op met de systeembeheerder";
+
                     // If statuscode != 200 or no content, show error
-                    if (content == "" || numericStatusCode != 200)
+                    }
+                    else if (content == "" || numericStatusCode != 200)
                     {
                         errorMessageText.Text = "Onjuist wachtwoord of email";
                     
-                        // On timeout
-                    } else if (numericStatusCode == 0) {
-                        errorMessageText.Text = "Geen verbinding met de server, neem contact op met de systeembeheerder";
-
                     }
                     else
                     {
