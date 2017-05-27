@@ -5,6 +5,8 @@ C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\Windows
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WebViews\description.html
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WebViews\image.html
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.manifest
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.application
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\aspnet_regsql.exe
@@ -19,10 +21,13 @@ C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\Windows
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\RestSharp.xml
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\nl\aspnet_regsql.resources.dll
-C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.TrustInfo.xml
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.manifest
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.application
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache

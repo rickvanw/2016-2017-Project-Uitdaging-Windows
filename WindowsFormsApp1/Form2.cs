@@ -1,16 +1,16 @@
 ﻿using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+    /**
+    * Form2, login form
+    **/
     public partial class Form2 : Form
     {
         public Form2()
@@ -20,6 +20,11 @@ namespace WindowsFormsApp1
             
         }
 
+        /**
+        * Initialize form on creation
+        * Add enter handlers to input fields
+        * Check if email is available in properties
+        **/
         private void initializeForm()
         {
             this.ShowInTaskbar = false;
@@ -37,11 +42,58 @@ namespace WindowsFormsApp1
             }
         }
 
+
+        /**
+        * --------------   USER INTERACTION    ----------------
+        **/
+
+
+        /**
+        * If loginbutton is clicked, go to check before attempt
+        **/
         private void loginButton_MouseClick(object sender, MouseEventArgs e)
         {
             CheckBeforeLogin();
         }
 
+        /**
+        * If the user closes this form, hide it instead of closing
+        **/
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            e.Cancel = true;
+            hideLoginForm();
+
+        }
+
+        /**
+         * Handler for the enter key, login on enter
+         **/
+        private void CheckEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+                // Enter key pressed
+                CheckBeforeLogin();
+            }
+        }
+
+
+        /**
+        * --------------   SERVER CALLS    ----------------
+        **/
+
+
+        /**
+        * POST request with user credentials, set jwt and email to properties after succesfull login
+        * email
+        * password
+        **/
         private async Task loginAsync(string email, string password)
         {
 
@@ -56,38 +108,48 @@ namespace WindowsFormsApp1
 
             // execute the request
             var response = await client.ExecuteTaskAsync(request);
-            var content = response.Content; // raw content as string  
 
+            HttpStatusCode statusCode = response.StatusCode;
+            int numericStatusCode = (int)statusCode;
+            Console.WriteLine("STATUS " + numericStatusCode);
+            var content = response.Content; // raw content as string  
 
             // Check if response is not null
             try
             {
                 if (!content.Equals(null))
                 {
-
-                    if (content == "")
+                        
+                    // If statuscode != 200 or no content, show error
+                    if (content == "" || numericStatusCode != 200)
                     {
                         errorMessageText.Text = "Onjuist wachtwoord of email";
+                    
+                        // On timeout
+                    } else if (numericStatusCode == 0) {
+                        errorMessageText.Text = "Geen verbinding met de server, neem contact op met de systeembeheerder";
+
                     }
                     else
                     {
                         // Login
-                        Console.WriteLine("JWT: " + content);
-
                         dynamic item = Newtonsoft.Json.JsonConvert.DeserializeObject(content);
                         Console.WriteLine((string)item.token);
                         Properties.Settings.Default.jwt = ((string)item.token);
-                        Properties.Settings.Default.Save(); // Saves settings in application configuration file
                         Properties.Settings.Default.email = email;
                         Properties.Settings.Default.Save(); // Saves settings in application configuration file
 
-                        Form fc = Application.OpenForms["Form1"];
+                        Form1 form1 = Application.OpenForms.OfType<Form1>().First();
+                        form1.getExerciseAsync();
 
-                        fc.Show();
+                        form1.WindowState = FormWindowState.Normal;
+                        form1.Show();
 
-                        this.Close();
+                        inputPassword.Text = "";
+                        this.Hide();
+
+
                     }
-                    
                 }
             }
             catch (Exception e)
@@ -95,26 +157,35 @@ namespace WindowsFormsApp1
                 // Notify user, can't get from the server
                 MessageBox.Show("Kan geen gegevens sturen naar de server, neem contact op met de systeembeheerder.", "Kom in Beweging - Fout",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine("TERROR: " + e.Message);
             }
-
         }
-        private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
+
+
+        /**
+        * --------------   UTILITIES    ----------------
+         **/
+
+
+        /**
+        * Hide this form
+        **/
+        private void hideLoginForm()
         {
-            if (e.KeyChar == (char)13)
-            {
-                e.Handled = true;
-                Console.WriteLine("ENTER");
-                // Enter key pressed
-                CheckBeforeLogin();
-            }
+            Hide();
+            WindowState = FormWindowState.Minimized;
         }
 
+        /**
+        * Check if all fields are filled before login attempt, notify user if not
+        **/
         private void CheckBeforeLogin() {
+
+            // Reset label changes from old errors
             emailLabel.ForeColor = Color.Black;
             errorMessageText.Text = "";
             passwordLabel.ForeColor = Color.Black;
 
+            // Change labels for potential errors
             bool cancel = false;
 
             if (inputEmail.Text == "")
