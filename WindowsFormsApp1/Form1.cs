@@ -233,7 +233,6 @@ namespace WindowsFormsApp1
         **/
         private void logoutTrayOption_Click(object sender, EventArgs e)
         {
-            //TODO uitloggen
             Properties.Settings.Default.jwt = "";
             Properties.Settings.Default.email = "";
             Properties.Settings.Default.Save();
@@ -321,7 +320,6 @@ namespace WindowsFormsApp1
             request.AddParameter("done", done); // adds to POST or URL querystring based on Method
             request.AddParameter("treatment_exercise_id", Globals.TreatmentExerciseID); 
 
-            //TODO implement auth jwt        
             request.AddHeader("authorization", Properties.Settings.Default.jwt);
             request.Timeout = 2000;
 
@@ -371,7 +369,6 @@ namespace WindowsFormsApp1
             request.AddParameter("rating", rating); // adds to POST or URL querystring based on Method
             request.AddParameter("treatment_exercise_id", Globals.TreatmentExerciseID);
 
-            //TODO implement auth jwt        
             request.AddHeader("authorization", Properties.Settings.Default.jwt);
             request.Timeout = 2000;
 
