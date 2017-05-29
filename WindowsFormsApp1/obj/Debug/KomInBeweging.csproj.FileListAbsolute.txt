@@ -1,0 +1,35 @@
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WebViews\treatment.css
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WebViews\treatment.js
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\exercise1.jpg
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WebViews\youtube_embed.html
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WebViews\description.html
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\WebViews\image.html
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\aspnet_regsql.exe
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\HtmlAgilityPack.dll
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\RestSharp.dll
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\aspnet_regsql.exe.config
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\HtmlAgilityPack.xml
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\RestSharp.xml
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\nl\aspnet_regsql.resources.dll
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\KomInBeweging.csproj.GenerateResource.Cache
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\KomInBeweging.csprojResolveAssemblyReference.cache
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\KomInBeweging.csproj.ResolveComReference.cache
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Kom in Beweging.exe.config
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Kom in Beweging.exe.manifest
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Kom in Beweging.application
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Kom in Beweging.exe
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\bin\Debug\Kom in Beweging.pdb
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Kom in Beweging.TrustInfo.xml
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Kom in Beweging.exe.manifest
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Kom in Beweging.application
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Kom in Beweging.exe
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Kom in Beweging.pdb

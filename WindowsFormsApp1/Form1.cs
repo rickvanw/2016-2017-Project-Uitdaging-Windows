@@ -3,6 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Net;
 using RestSharp;
+using System.Runtime.InteropServices;
+using System.IO;
+using IWshRuntimeLibrary;
+using System.Threading;
+using System.Timers;
 
 namespace WindowsFormsApp1
 {
@@ -49,6 +54,8 @@ namespace WindowsFormsApp1
         **/
         private void Form1_Load(object sender, EventArgs e)
         {
+            //timer1.Interval = 60 * 60 * 1000;
+            timer1.Interval = 1000 * 60;
             initializeForm();
             Form form2 = new Form2();
             form2.Show();
@@ -61,7 +68,6 @@ namespace WindowsFormsApp1
                 refreshButton.Visible = true;
                 showLogin();
             }
-
         }
 
         /**
@@ -84,8 +90,8 @@ namespace WindowsFormsApp1
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
+            enableAutoStartup();
         }
-
 
         /**
          * --------------   USER INTERACTION    ----------------
@@ -96,8 +102,11 @@ namespace WindowsFormsApp1
         **/
         private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
         {
-            showExerciseForm();
             Console.WriteLine("balloon");
+            clearAll();
+            getExerciseAsync();
+            showExerciseForm();
+
         }
 
         /**
@@ -110,7 +119,6 @@ namespace WindowsFormsApp1
             {
                 showExerciseForm();
                 Console.WriteLine("notify");
-
             }
         }
 
@@ -197,7 +205,7 @@ namespace WindowsFormsApp1
         /**
         * Button for delaying the exercise, takes the chosen time from the combobox
         **/
-        private void button1_MouseClick(object sender, MouseEventArgs e)
+        private void delayButton_MouseClick(object sender, MouseEventArgs e)
         {
             var item = comboBox1.SelectedIndex;
             hideExerciseForm();
@@ -517,7 +525,7 @@ namespace WindowsFormsApp1
             buttonDislike.Visible = false;
             doneWithExercise.Visible = false;
             comboBox1.Visible = false;
-            button1.Visible = false;
+            delayButton.Visible = false;
 
             refreshButton.Visible = false;
         }
@@ -541,7 +549,7 @@ namespace WindowsFormsApp1
             buttonDislike.Visible = true;
             doneWithExercise.Visible = true;
             comboBox1.Visible = true;
-            button1.Visible = true;
+            delayButton.Visible = true;
 
         }
 
@@ -648,9 +656,28 @@ namespace WindowsFormsApp1
             form2.WindowState = FormWindowState.Normal;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
 
+        private void enableAutoStartup()
+        {
+            var startupFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            WshShell shell = new WshShell();
+            string shortcutAddress = startupFolder + @"\KomInBeweging.lnk";
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
+            shortcut.Description = "Snelkoppeling om de 'Kom in Beweging' applicatie bij het inloggen te starten.";
+            shortcut.WorkingDirectory = Application.StartupPath; /* working directory */
+            shortcut.TargetPath = Application.ExecutablePath; /* path of the executable */
+            shortcut.Save(); // save the shortcut 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("tick");
+            notifyIcon1.ShowBalloonTip(20000, "Nieuwe oefening!", "Klik hier om te beginnen", ToolTipIcon.None);
+        }
+
+        private void delayTimer_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("delay done");
         }
     }
 }

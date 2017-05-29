@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{0D14AE35-828D-45FF-968D-491D24F2D232}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KomInBeweging", "WindowsFormsApp1\KomInBeweging.csproj", "{0D14AE35-828D-45FF-968D-491D24F2D232}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

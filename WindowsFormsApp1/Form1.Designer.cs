@@ -33,9 +33,11 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.quitTrayOption = new System.Windows.Forms.ToolStripMenuItem();
-            this.openTrayOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.loginTrayOption = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutTrayOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.openTrayOption = new System.Windows.Forms.ToolStripMenuItem();
             this.exerciseName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.exerciseRepetitions = new System.Windows.Forms.Label();
@@ -44,16 +46,16 @@
             this.exerciseImageBrowser = new System.Windows.Forms.WebBrowser();
             this.refreshButton = new System.Windows.Forms.Button();
             this.doneWithExercise = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.delayButton = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonDislike = new System.Windows.Forms.Button();
             this.buttonLike = new System.Windows.Forms.Button();
             this.buttonNotDone = new System.Windows.Forms.Button();
             this.buttonDone = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.delayTimer = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -79,37 +81,47 @@
             this.toolStripSeparator1,
             this.openTrayOption});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 169);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 104);
             // 
             // quitTrayOption
             // 
             this.quitTrayOption.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.quitTrayOption.Name = "quitTrayOption";
-            this.quitTrayOption.Size = new System.Drawing.Size(211, 30);
+            this.quitTrayOption.Size = new System.Drawing.Size(126, 22);
             this.quitTrayOption.Text = "Afsluiten";
             this.quitTrayOption.Click += new System.EventHandler(this.quitTrayOption_Click);
             // 
-            // openTrayOption
+            // toolStripSeparator2
             // 
-            this.openTrayOption.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.openTrayOption.Name = "openTrayOption";
-            this.openTrayOption.Size = new System.Drawing.Size(211, 30);
-            this.openTrayOption.Text = "Openen";
-            this.openTrayOption.Click += new System.EventHandler(this.openTrayOption_Click);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(123, 6);
             // 
             // loginTrayOption
             // 
             this.loginTrayOption.Name = "loginTrayOption";
-            this.loginTrayOption.Size = new System.Drawing.Size(211, 30);
+            this.loginTrayOption.Size = new System.Drawing.Size(126, 22);
             this.loginTrayOption.Text = "Inloggen";
             this.loginTrayOption.Click += new System.EventHandler(this.loginTrayOption_Click);
             // 
             // logoutTrayOption
             // 
             this.logoutTrayOption.Name = "logoutTrayOption";
-            this.logoutTrayOption.Size = new System.Drawing.Size(211, 30);
+            this.logoutTrayOption.Size = new System.Drawing.Size(126, 22);
             this.logoutTrayOption.Text = "Uitloggen";
             this.logoutTrayOption.Click += new System.EventHandler(this.logoutTrayOption_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(123, 6);
+            // 
+            // openTrayOption
+            // 
+            this.openTrayOption.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.openTrayOption.Name = "openTrayOption";
+            this.openTrayOption.Size = new System.Drawing.Size(126, 22);
+            this.openTrayOption.Text = "Openen";
+            this.openTrayOption.Click += new System.EventHandler(this.openTrayOption_Click);
             // 
             // exerciseName
             // 
@@ -119,7 +131,7 @@
             this.exerciseName.Location = new System.Drawing.Point(60, 46);
             this.exerciseName.MaximumSize = new System.Drawing.Size(600, 67);
             this.exerciseName.Name = "exerciseName";
-            this.exerciseName.Size = new System.Drawing.Size(303, 67);
+            this.exerciseName.Size = new System.Drawing.Size(205, 55);
             this.exerciseName.TabIndex = 2;
             this.exerciseName.Text = "Planken";
             // 
@@ -130,7 +142,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(163)))), ((int)(((byte)(231)))));
             this.label2.Location = new System.Drawing.Point(688, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(245, 46);
+            this.label2.Size = new System.Drawing.Size(171, 31);
             this.label2.TabIndex = 3;
             this.label2.Text = "Herhalingen";
             // 
@@ -141,7 +153,7 @@
             this.exerciseRepetitions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(163)))), ((int)(((byte)(231)))));
             this.exerciseRepetitions.Location = new System.Drawing.Point(744, 80);
             this.exerciseRepetitions.Name = "exerciseRepetitions";
-            this.exerciseRepetitions.Size = new System.Drawing.Size(76, 82);
+            this.exerciseRepetitions.Size = new System.Drawing.Size(52, 55);
             this.exerciseRepetitions.TabIndex = 4;
             this.exerciseRepetitions.Text = "5";
             // 
@@ -214,6 +226,37 @@
             this.doneWithExercise.Text = "Klaar";
             this.doneWithExercise.UseVisualStyleBackColor = false;
             this.doneWithExercise.MouseClick += new System.Windows.Forms.MouseEventHandler(this.doneWithExercise_MouseClick);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Location = new System.Drawing.Point(24, 768);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // delayButton
+            // 
+            this.delayButton.BackColor = System.Drawing.Color.White;
+            this.delayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.delayButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delayButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.delayButton.FlatAppearance.BorderSize = 0;
+            this.delayButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.delayButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.delayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delayButton.ForeColor = System.Drawing.Color.Black;
+            this.delayButton.Location = new System.Drawing.Point(24, 789);
+            this.delayButton.Name = "delayButton";
+            this.delayButton.Size = new System.Drawing.Size(100, 29);
+            this.delayButton.TabIndex = 17;
+            this.delayButton.Text = "Uitstellen";
+            this.delayButton.UseVisualStyleBackColor = false;
+            this.delayButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.delayButton_MouseClick);
             // 
             // pictureBox3
             // 
@@ -299,47 +342,15 @@
             this.buttonDone.UseVisualStyleBackColor = false;
             this.buttonDone.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox1
+            // timer1
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Location = new System.Drawing.Point(24, 768);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 24);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
+            // delayTimer
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(24, 789);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 29);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Uitstellen";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(208, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(208, 6);
+            this.delayTimer.Tick += new System.EventHandler(this.delayTimer_Tick);
             // 
             // Form1
             // 
@@ -347,7 +358,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.ClientSize = new System.Drawing.Size(884, 844);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.delayButton);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.doneWithExercise);
             this.Controls.Add(this.pictureBox3);
@@ -402,9 +413,11 @@
         private System.Windows.Forms.ToolStripMenuItem loginTrayOption;
         private System.Windows.Forms.ToolStripMenuItem logoutTrayOption;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button delayButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer delayTimer;
     }
 }
 
