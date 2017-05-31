@@ -54,8 +54,6 @@
             this.buttonLike = new System.Windows.Forms.Button();
             this.buttonNotDone = new System.Windows.Forms.Button();
             this.buttonDone = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.delayTimer = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -81,45 +79,45 @@
             this.toolStripSeparator1,
             this.openTrayOption});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 104);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 112);
             // 
             // quitTrayOption
             // 
             this.quitTrayOption.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.quitTrayOption.Name = "quitTrayOption";
-            this.quitTrayOption.Size = new System.Drawing.Size(126, 22);
+            this.quitTrayOption.Size = new System.Drawing.Size(144, 24);
             this.quitTrayOption.Text = "Afsluiten";
             this.quitTrayOption.Click += new System.EventHandler(this.quitTrayOption_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(123, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(141, 6);
             // 
             // loginTrayOption
             // 
             this.loginTrayOption.Name = "loginTrayOption";
-            this.loginTrayOption.Size = new System.Drawing.Size(126, 22);
+            this.loginTrayOption.Size = new System.Drawing.Size(144, 24);
             this.loginTrayOption.Text = "Inloggen";
             this.loginTrayOption.Click += new System.EventHandler(this.loginTrayOption_Click);
             // 
             // logoutTrayOption
             // 
             this.logoutTrayOption.Name = "logoutTrayOption";
-            this.logoutTrayOption.Size = new System.Drawing.Size(126, 22);
+            this.logoutTrayOption.Size = new System.Drawing.Size(144, 24);
             this.logoutTrayOption.Text = "Uitloggen";
             this.logoutTrayOption.Click += new System.EventHandler(this.logoutTrayOption_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(123, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
             // 
             // openTrayOption
             // 
             this.openTrayOption.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.openTrayOption.Name = "openTrayOption";
-            this.openTrayOption.Size = new System.Drawing.Size(126, 22);
+            this.openTrayOption.Size = new System.Drawing.Size(144, 24);
             this.openTrayOption.Text = "Openen";
             this.openTrayOption.Click += new System.EventHandler(this.openTrayOption_Click);
             // 
@@ -131,7 +129,7 @@
             this.exerciseName.Location = new System.Drawing.Point(60, 46);
             this.exerciseName.MaximumSize = new System.Drawing.Size(600, 67);
             this.exerciseName.Name = "exerciseName";
-            this.exerciseName.Size = new System.Drawing.Size(205, 55);
+            this.exerciseName.Size = new System.Drawing.Size(252, 67);
             this.exerciseName.TabIndex = 2;
             this.exerciseName.Text = "Planken";
             // 
@@ -142,7 +140,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(163)))), ((int)(((byte)(231)))));
             this.label2.Location = new System.Drawing.Point(688, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 31);
+            this.label2.Size = new System.Drawing.Size(213, 39);
             this.label2.TabIndex = 3;
             this.label2.Text = "Herhalingen";
             // 
@@ -153,7 +151,7 @@
             this.exerciseRepetitions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(163)))), ((int)(((byte)(231)))));
             this.exerciseRepetitions.Location = new System.Drawing.Point(744, 80);
             this.exerciseRepetitions.Name = "exerciseRepetitions";
-            this.exerciseRepetitions.Size = new System.Drawing.Size(52, 55);
+            this.exerciseRepetitions.Size = new System.Drawing.Size(64, 69);
             this.exerciseRepetitions.TabIndex = 4;
             this.exerciseRepetitions.Text = "5";
             // 
@@ -234,7 +232,7 @@
             this.comboBox1.Location = new System.Drawing.Point(24, 768);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.Size = new System.Drawing.Size(100, 24);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -342,16 +340,6 @@
             this.buttonDone.UseVisualStyleBackColor = false;
             this.buttonDone.Click += new System.EventHandler(this.button1_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 5000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // delayTimer
-            // 
-            this.delayTimer.Tick += new System.EventHandler(this.delayTimer_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -379,7 +367,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kom in Beweging";
-            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -416,8 +403,6 @@
         private System.Windows.Forms.Button delayButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer delayTimer;
     }
 }
 
