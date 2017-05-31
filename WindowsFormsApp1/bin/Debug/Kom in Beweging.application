@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Kom in Beweging.exe.manifest" size="8714">
+    <dependentAssembly dependencyType="install" codebase="Kom in Beweging.exe.manifest" size="8018">
       <assemblyIdentity name="Kom in Beweging.exe" version="1.0.0.6" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CVGXQaDJ0OMqFLcLLAGDP75QfGSwu0GFeWflTpTPBq0=</dsig:DigestValue>
+        <dsig:DigestValue>XNeb15Nptp7btGDWklahk+dTG0bLCDaPxN0YDiHCu7M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
