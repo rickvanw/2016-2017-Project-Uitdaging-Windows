@@ -67,3 +67,4 @@ C:\Users\larsw\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\Windows
 C:\Users\larsw\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Kom in Beweging.application
 C:\Users\larsw\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Kom in Beweging.exe
 C:\Users\larsw\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\Kom in Beweging.pdb
+C:\Users\rickv\Source\Repos\2016-2017-Project-Uitdaging-EHI2Va15-Windows\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form3.resources

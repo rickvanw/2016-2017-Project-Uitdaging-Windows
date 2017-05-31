@@ -52,6 +52,7 @@
             this.delayButtonNotification.TabIndex = 19;
             this.delayButtonNotification.Text = "Uitstellen";
             this.delayButtonNotification.UseVisualStyleBackColor = false;
+            this.delayButtonNotification.MouseClick += new System.Windows.Forms.MouseEventHandler(this.delayButtonNotification_MouseClick);
             // 
             // comboBox1Notification
             // 
@@ -100,9 +101,10 @@
             this.Opacity = 0.95D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form3_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form3_MouseClick);
             this.ResumeLayout(false);

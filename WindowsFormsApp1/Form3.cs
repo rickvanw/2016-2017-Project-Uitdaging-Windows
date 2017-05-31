@@ -20,8 +20,16 @@ namespace WindowsFormsApp1
         private void Form3_Load(object sender, EventArgs e)
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
-            this.Location = new Point((workingArea.Right-10) - Size.Width,
-                                      (workingArea.Bottom-10) - Size.Height);
+            this.Location = new Point((workingArea.Right-10) - 300,
+                                      (workingArea.Bottom-10) - 120);
+
+            comboBox1Notification.Items.Add("5 Minuten");
+            comboBox1Notification.Items.Add("15 Minuten");
+            comboBox1Notification.Items.Add("30 Minuten");
+            comboBox1Notification.Items.Add("45 Minuten");
+            comboBox1Notification.SelectedIndex = 0;
+
+            delayButtonNotification.Select();
         }
 
         private void Form3_MouseClick(object sender, MouseEventArgs e)
@@ -34,6 +42,26 @@ namespace WindowsFormsApp1
 
             this.Hide();
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void delayButtonNotification_MouseClick(object sender, MouseEventArgs e)
+        {
+            Form1 form1 = Application.OpenForms.OfType<Form1>().First();
+            form1.delayTimer(comboBox1Notification.Text);
+            disableDelayExercise();
+            disableDelayNotification();
+        }
+
+        public void disableDelayNotification()
+        {
+            delayButtonNotification.Enabled = false;
+            comboBox1Notification.Enabled = false;
+        }
+
+        private void disableDelayExercise()
+        {
+            Form1 form1 = Application.OpenForms.OfType<Form1>().First();
+            form1.disableDelayExercise();
         }
     }
 }

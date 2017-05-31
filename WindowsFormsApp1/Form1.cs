@@ -56,7 +56,8 @@ namespace WindowsFormsApp1
         {
             System.Timers.Timer hourTimer;
             hourTimer = new System.Timers.Timer();
-            hourTimer.Interval = 60 * 60 * 1000;
+            //hourTimer.Interval = 60 * 60 * 1000;
+            hourTimer.Interval = 20 * 1000;
 
             // Hook up the Elapsed event for the timer. 
             hourTimer.Elapsed += OnHourTimedEvent;
@@ -69,6 +70,8 @@ namespace WindowsFormsApp1
             initializeForm();
             Form form2 = new Form2();
             form2.Show();
+            Form form3 = new Form3();
+            form3.Show();
             if (authorized())
             {
                 getExerciseAsync();
@@ -116,7 +119,6 @@ namespace WindowsFormsApp1
             clearAll();
             getExerciseAsync();
             showExerciseForm();
-
         }
 
         /**
@@ -217,25 +219,9 @@ namespace WindowsFormsApp1
         **/
         private void delayButton_MouseClick(object sender, MouseEventArgs e)
         {
-            String minutes = comboBox1.Text;
-            Console.WriteLine(minutes);
-            string [] comboboxvalue = minutes.Split(' ');
-            int minute = Int32.Parse(comboboxvalue[0]);
-            Console.WriteLine(minute);
-            System.Timers.Timer delayTimer;
-            delayTimer = new System.Timers.Timer();
-            delayTimer.Interval = minute * 60 * 1000;
-
-            // Hook up the Elapsed event for the timer. 
-            delayTimer.Elapsed += OnDelayTimedEvent;
-
-            // Have the timer fire repeated events (true is the default)
-            delayTimer.AutoReset = false;
-
-            // Start the timer
-            delayTimer.Enabled = true;
-            var item = comboBox1.SelectedIndex;
-            hideExerciseForm();
+            delayTimer(comboBox1.Text);
+            disableDelayExercise();
+            disableDelayNotification();
         }
 
         // TRAY OPTIONS
@@ -604,6 +590,8 @@ namespace WindowsFormsApp1
         {
             WindowState = FormWindowState.Normal;
             Show();
+            BringToFront();
+
         }
 
         /**
@@ -681,8 +669,40 @@ namespace WindowsFormsApp1
             Form form2 = Application.OpenForms["Form2"];
             form2.Show();
             form2.WindowState = FormWindowState.Normal;
+            form2.BringToFront();
         }
 
+        /**
+        * Show the login form
+        **/
+        private void showNotification()
+        {
+            Form form3 = Application.OpenForms["Form3"];
+
+            form3.Invoke((MethodInvoker)delegate ()
+            {
+                form3.Show();
+                form3.WindowState = FormWindowState.Normal;
+            });
+        }
+
+
+        // TODO enable als uur om is, ook koppelen met form3
+        private void disableDelayNotification() {
+
+            Form3 form3 = (Form3)Application.OpenForms["Form3"];
+            form3.Invoke((MethodInvoker)delegate ()
+            {
+                form3.disableDelayNotification();
+                
+            });
+        }
+
+        public void disableDelayExercise()
+        {
+            delayButton.Enabled = false;
+            comboBox1.Enabled = false;
+        }
 
         private void enableAutoStartup()
         {
@@ -696,18 +716,38 @@ namespace WindowsFormsApp1
             shortcut.Save(); // save the shortcut 
         }
 
-        private void OnHourTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        private void OnHourTimedEvent(Object source, ElapsedEventArgs e)
         {
-            notifyIcon1.ShowBalloonTip(1000, "Notification", "Klik voor meer informatie", ToolTipIcon.None);
-
+            showNotification();
+            disableDelayExercise();
+            disableDelayNotification();
         }
 
-        private void OnDelayTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        private void OnDelayTimedEvent(Object source, ElapsedEventArgs e)
         {
-            notifyIcon1.ShowBalloonTip(1000, "Notification", "De timer werkt als een baas", ToolTipIcon.None);
-
+            showNotification();
         }
 
+        public void delayTimer(string timeText) {
+            String minutes = timeText;
+            Console.WriteLine(minutes);
+            string[] comboboxvalue = minutes.Split(' ');
+            int minute = Int32.Parse(comboboxvalue[0]);
+            Console.WriteLine(minute);
+            System.Timers.Timer delayTimer;
+            delayTimer = new System.Timers.Timer();
+            delayTimer.Interval = minute * 1000;
 
+            // Hook up the Elapsed event for the timer. 
+            delayTimer.Elapsed += OnDelayTimedEvent;
+
+            // Have the timer fire repeated events (true is the default)
+            delayTimer.AutoReset = false;
+
+            // Start the timer
+            delayTimer.Enabled = true;
+            var item = comboBox1.SelectedIndex;
+            hideExerciseForm();
+        }
     }
 }
