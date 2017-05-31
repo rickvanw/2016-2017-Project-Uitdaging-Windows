@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kom in Beweging.exe" size="524768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Kom in Beweging.exe" size="526816">
       <assemblyIdentity name="Kom in Beweging" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>to2bphgCtMNeLXVkarZRtQsjEoClaKaKZzMZ1wQhPv8=</dsig:DigestValue>
+        <dsig:DigestValue>hWYE2B0MUEKvWaWYdkeuQA11y39/QcM7joGHZivwm5Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

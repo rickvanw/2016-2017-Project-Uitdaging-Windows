@@ -149,8 +149,6 @@ namespace WindowsFormsApp1
 
                         inputPassword.Text = "";
                         this.Hide();
-
-
                     }
                 }
             }

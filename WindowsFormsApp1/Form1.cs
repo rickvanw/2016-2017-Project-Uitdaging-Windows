@@ -55,10 +55,11 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             //timer1.Interval = 60 * 60 * 1000;
-            timer1.Interval = 1000 * 60;
             initializeForm();
             Form form2 = new Form2();
             form2.Show();
+            Form form3 = new Form3();
+            form3.Show();
             if (authorized())
             {
                 getExerciseAsync();
@@ -77,7 +78,7 @@ namespace WindowsFormsApp1
         {
             // DEBUG CLEAR SETTINGS
             //Properties.Settings.Default.Reset();
-            comboBox1.Items.Add(new Item("5 Minuten",1));
+            comboBox1.Items.Add(new Item("5  Minuten",1));
             comboBox1.Items.Add(new Item("15 Minuten", 2));
             comboBox1.Items.Add(new Item("30 Minuten", 3));
             comboBox1.Items.Add(new Item("45 Minuten", 4));
@@ -656,6 +657,16 @@ namespace WindowsFormsApp1
             form2.WindowState = FormWindowState.Normal;
         }
 
+        /**
+        * Show the login form
+        **/
+        private void showNotification()
+        {
+            Form form3 = Application.OpenForms["Form3"];
+            form3.Show();
+            form3.WindowState = FormWindowState.Normal;
+        }
+
 
         private void enableAutoStartup()
         {
@@ -671,13 +682,14 @@ namespace WindowsFormsApp1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Console.WriteLine("tick");
-            notifyIcon1.ShowBalloonTip(20000, "Nieuwe oefening!", "Klik hier om te beginnen", ToolTipIcon.None);
+
         }
 
         private void delayTimer_Tick(object sender, EventArgs e)
         {
-            Console.WriteLine("delay done");
+
         }
+        //notifyIcon1.ShowBalloonTip(20000, "Nieuwe oefening!", "Klik hier om te beginnen", ToolTipIcon.None);
+
     }
 }
