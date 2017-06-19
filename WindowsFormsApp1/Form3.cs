@@ -58,6 +58,12 @@ namespace WindowsFormsApp1
             comboBox1Notification.Enabled = false;
         }
 
+        public void enableDelayNotification()
+        {
+            delayButtonNotification.Enabled = true;
+            comboBox1Notification.Enabled = true;
+        }
+
         private void disableDelayExercise()
         {
             Form1 form1 = Application.OpenForms.OfType<Form1>().First();

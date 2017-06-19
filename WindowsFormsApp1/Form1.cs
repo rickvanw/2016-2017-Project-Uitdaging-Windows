@@ -8,6 +8,7 @@ using System.IO;
 using IWshRuntimeLibrary;
 using System.Threading;
 using System.Timers;
+using System.Text.RegularExpressions;
 
 namespace WindowsFormsApp1
 {
@@ -54,24 +55,40 @@ namespace WindowsFormsApp1
         **/
         private void Form1_Load(object sender, EventArgs e)
         {
-            System.Timers.Timer hourTimer;
-            hourTimer = new System.Timers.Timer();
-            //hourTimer.Interval = 60 * 60 * 1000;
-            hourTimer.Interval = 20 * 1000;
-
-            // Hook up the Elapsed event for the timer. 
-            hourTimer.Elapsed += OnHourTimedEvent;
-
-            // Have the timer fire repeated events (true is the default)
-            hourTimer.AutoReset = true;
-
-            // Start the timer
-            hourTimer.Enabled = true;
             initializeForm();
             Form form2 = new Form2();
             form2.Show();
             Form form3 = new Form3();
             form3.Show();
+
+            System.Timers.Timer alignTimeTimer;
+            alignTimeTimer = new System.Timers.Timer();
+            var timeToAlign = 0;
+            if (DateTime.Now.Minute < 30)
+            {
+                // Timer will be set to go until first 30 min
+                timeToAlign = 30 - DateTime.Now.Minute;
+                Console.WriteLine("timeToAlign 1: " + timeToAlign);
+            }
+            else {
+                // Timer will be set to go until first 30 min
+                timeToAlign = 60 - DateTime.Now.Minute;
+                timeToAlign += 30;
+                Console.WriteLine("timeToAlign 2: " + timeToAlign);
+
+            }
+
+            Console.WriteLine("timeToAlign 3: " + timeToAlign);
+
+            //TODO set back
+            alignTimeTimer.Interval = timeToAlign * 60 * 1000;
+            //alignTimeTimer.Interval = timeToAlign * 1000;
+            alignTimeTimer.Elapsed += OnAlignTimedEvent;
+
+            alignTimeTimer.AutoReset = false;
+            alignTimeTimer.Enabled = true;
+
+
             if (authorized())
             {
                 getExerciseAsync();
@@ -103,7 +120,7 @@ namespace WindowsFormsApp1
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            enableAutoStartup();
+            //enableAutoStartup();
         }
 
         /**
@@ -312,7 +329,6 @@ namespace WindowsFormsApp1
                     }
                 }
                 else {
-                    showLogin();
                     refreshButton.Visible = true;
                 }
             }
@@ -474,7 +490,7 @@ namespace WindowsFormsApp1
                         "<body oncontextmenu='return false;' style='user-select: none;-ms-user-select:none; -moz-user-select: none;  -webkit-user-select: none;background-color:#efeaea;top:0; left:0; margin:0; border:none;height:349px; width:620px' >" +
                         "<div style = 'background-color:#efeaea;overflow:hidden;height:100%; width:100%;' >" +
                         "<iframe allowfullscreen='allowfullscreen' style ='background-color:#efeaea;overflow:hidden;top:0; left:0; margin:0; border:none;height:100%; width:100%;' src =" +
-                        "'" + (string)item.media_url + "?autoplay=0&showinfo=0&controls=1&rel=0' allowfullscreen>" +
+                        "'" + getEmbedUrl((string)item.media_url) + "?autoplay=0&showinfo=0&controls=1&rel=0' allowfullscreen>" +
                         "</iframe >" +
                         "</div>" +
                         "</body>" +
@@ -694,7 +710,6 @@ namespace WindowsFormsApp1
             form3.Invoke((MethodInvoker)delegate ()
             {
                 form3.disableDelayNotification();
-                
             });
         }
 
@@ -702,6 +717,34 @@ namespace WindowsFormsApp1
         {
             delayButton.Enabled = false;
             comboBox1.Enabled = false;
+        }
+
+        private void enableDelayNotification()
+        {
+
+            Form3 form3 = (Form3)Application.OpenForms["Form3"];
+            form3.Invoke((MethodInvoker)delegate ()
+            {
+                form3.enableDelayNotification();
+            });
+        }
+
+
+        private void enableDelayExercise()
+        {
+            Form1 form1 = (Form1)Application.OpenForms["Form1"];
+            form1.Invoke((MethodInvoker)delegate ()
+            {
+                delayButton.Enabled = true;
+                comboBox1.Enabled = true;
+            });           
+        }
+
+        public string getEmbedUrl(string url)
+        {
+            var YoutubeVideoRegex = new Regex(@"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)");
+            Match youtubeMatch = YoutubeVideoRegex.Match(url);
+            return youtubeMatch.Success ? "http://www.youtube.com/embed/" + youtubeMatch.Groups[1].Value : string.Empty;
         }
 
         private void enableAutoStartup()
@@ -716,11 +759,35 @@ namespace WindowsFormsApp1
             shortcut.Save(); // save the shortcut 
         }
 
+        private void OnAlignTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            showNotification();
+            enableDelayExercise();
+            enableDelayNotification();
+
+            System.Timers.Timer hourTimer;
+            hourTimer = new System.Timers.Timer();
+            //TODO set back
+            hourTimer.Interval = 60 * 60 * 1000;
+            //hourTimer.Interval = 60 * 1000;
+
+            // Hook up the Elapsed event for the timer. 
+            hourTimer.Elapsed += OnHourTimedEvent;
+
+            // Have the timer fire repeated events (true is the default)
+            hourTimer.AutoReset = true;
+
+            // Start the timer
+            hourTimer.Enabled = true;
+
+        }
+
         private void OnHourTimedEvent(Object source, ElapsedEventArgs e)
         {
             showNotification();
-            disableDelayExercise();
-            disableDelayNotification();
+            enableDelayExercise();
+            enableDelayNotification();
+            
         }
 
         private void OnDelayTimedEvent(Object source, ElapsedEventArgs e)
@@ -736,7 +803,10 @@ namespace WindowsFormsApp1
             Console.WriteLine(minute);
             System.Timers.Timer delayTimer;
             delayTimer = new System.Timers.Timer();
-            delayTimer.Interval = minute * 1000;
+
+            //TODO: set back
+            delayTimer.Interval = minute * 60 * 1000;
+            //delayTimer.Interval = minute * 1000;
 
             // Hook up the Elapsed event for the timer. 
             delayTimer.Elapsed += OnDelayTimedEvent;
@@ -749,5 +819,8 @@ namespace WindowsFormsApp1
             var item = comboBox1.SelectedIndex;
             hideExerciseForm();
         }
+
+        // Create embed url for youtube link
+      
     }
 }
