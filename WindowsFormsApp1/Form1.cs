@@ -80,9 +80,10 @@ namespace WindowsFormsApp1
 
             Console.WriteLine("timeToAlign 3: " + timeToAlign);
 
-            //TODO set back
+            // Change to seconds for debug
             alignTimeTimer.Interval = timeToAlign * 60 * 1000;
             //alignTimeTimer.Interval = timeToAlign * 1000;
+
             alignTimeTimer.Elapsed += OnAlignTimedEvent;
 
             alignTimeTimer.AutoReset = false;
@@ -120,6 +121,7 @@ namespace WindowsFormsApp1
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
+            // TODO enable autostartup
             //enableAutoStartup();
         }
 
@@ -323,9 +325,9 @@ namespace WindowsFormsApp1
                         refreshButton.Visible = true;
 
                         // Notify user, there is no exercise
-                        MessageBox.Show("Kan geen oefening vinden, neem contact op met de systeembeheerder.", "Kom in Beweging - Fout",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Console.WriteLine("ERROR: empty content: " + response.ErrorMessage);
+                        //MessageBox.Show("Kan geen oefening vinden, neem contact op met de systeembeheerder.", "Kom in Beweging - Fout",
+                        //MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //Console.WriteLine("ERROR: empty content: " + response.ErrorMessage);
                     }
                 }
                 else {
@@ -481,7 +483,9 @@ namespace WindowsFormsApp1
                 // Save treatment_exercise_id for later use
                 Globals.TreatmentExerciseID = (string)item.treatment_exercise_id;
 
-                    // Fill webbrowser for video, insert correct video url
+                Console.WriteLine(JSONResponse);
+
+                // Fill webbrowser for video, insert correct video url
                 exerciseVideoBrowser.DocumentText = "<!DOCTYPE html>" +
                         "<html lang = 'en' xmlns = 'http://www.w3.org/1999/xhtml'>" +
                         "<head >" +
@@ -490,13 +494,11 @@ namespace WindowsFormsApp1
                         "<body oncontextmenu='return false;' style='user-select: none;-ms-user-select:none; -moz-user-select: none;  -webkit-user-select: none;background-color:#efeaea;top:0; left:0; margin:0; border:none;height:349px; width:620px' >" +
                         "<div style = 'background-color:#efeaea;overflow:hidden;height:100%; width:100%;' >" +
                         "<iframe allowfullscreen='allowfullscreen' style ='background-color:#efeaea;overflow:hidden;top:0; left:0; margin:0; border:none;height:100%; width:100%;' src =" +
-                        "'" + getEmbedUrl((string)item.media_url) + "?autoplay=0&showinfo=0&controls=1&rel=0' allowfullscreen>" +
+                        "'" + getEmbedUrl((string)item.media_url) + "?autoplay=0&showinfo=0&controls=0&rel=0' allowfullscreen>" +
                         "</iframe >" +
                         "</div>" +
                         "</body>" +
                         "</html> ";
-
-                // TODO image extension in database
 
                 // Fill webbrowser for video, insert correct image url
                 exerciseImageBrowser.DocumentText = "<!DOCTYPE html>" +
@@ -689,7 +691,7 @@ namespace WindowsFormsApp1
         }
 
         /**
-        * Show the login form
+        * Show the notification form
         **/
         private void showNotification()
         {
@@ -702,8 +704,9 @@ namespace WindowsFormsApp1
             });
         }
 
-
-        // TODO enable als uur om is, ook koppelen met form3
+        /**
+        * Disable delay functionality for the notification box
+        **/
         private void disableDelayNotification() {
 
             Form3 form3 = (Form3)Application.OpenForms["Form3"];
@@ -713,12 +716,18 @@ namespace WindowsFormsApp1
             });
         }
 
+        /**
+        * Disable delay functionality for the exercise form (this form)
+        **/
         public void disableDelayExercise()
         {
             delayButton.Enabled = false;
             comboBox1.Enabled = false;
         }
 
+        /**
+        * Enable delay functionality for the notification box
+        **/
         private void enableDelayNotification()
         {
 
@@ -729,7 +738,9 @@ namespace WindowsFormsApp1
             });
         }
 
-
+        /**
+        * Enable delay functionality for the exercise form (this form)
+        **/
         private void enableDelayExercise()
         {
             Form1 form1 = (Form1)Application.OpenForms["Form1"];
@@ -739,7 +750,10 @@ namespace WindowsFormsApp1
                 comboBox1.Enabled = true;
             });           
         }
-
+       
+        /**
+        * Create embed url for normal "watch" youtube link
+        **/
         public string getEmbedUrl(string url)
         {
             var YoutubeVideoRegex = new Regex(@"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)");
@@ -747,6 +761,9 @@ namespace WindowsFormsApp1
             return youtubeMatch.Success ? "http://www.youtube.com/embed/" + youtubeMatch.Groups[1].Value : string.Empty;
         }
 
+        /**
+        * Put shortcut in startup folder to launch at startup
+        **/
         private void enableAutoStartup()
         {
             var startupFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
@@ -759,6 +776,9 @@ namespace WindowsFormsApp1
             shortcut.Save(); // save the shortcut 
         }
 
+        /**
+        * When align timer is finished (first half hour is reached), notify user with exercise, set hourly timer until shutdown
+        **/
         private void OnAlignTimedEvent(Object source, ElapsedEventArgs e)
         {
             showNotification();
@@ -767,7 +787,8 @@ namespace WindowsFormsApp1
 
             System.Timers.Timer hourTimer;
             hourTimer = new System.Timers.Timer();
-            //TODO set back
+
+            // Set to seconds for debug
             hourTimer.Interval = 60 * 60 * 1000;
             //hourTimer.Interval = 60 * 1000;
 
@@ -782,6 +803,9 @@ namespace WindowsFormsApp1
 
         }
 
+        /**
+        * Every hour show notification, this means new exercise so delay is enabled again.
+        **/
         private void OnHourTimedEvent(Object source, ElapsedEventArgs e)
         {
             showNotification();
@@ -790,11 +814,17 @@ namespace WindowsFormsApp1
             
         }
 
+        /**
+        * If delay is done, notify user
+        **/
         private void OnDelayTimedEvent(Object source, ElapsedEventArgs e)
         {
             showNotification();
         }
 
+        /**
+        * Setup the delaytimer
+        **/
         public void delayTimer(string timeText) {
             String minutes = timeText;
             Console.WriteLine(minutes);
@@ -804,7 +834,7 @@ namespace WindowsFormsApp1
             System.Timers.Timer delayTimer;
             delayTimer = new System.Timers.Timer();
 
-            //TODO: set back
+            // Set to seconds for debug
             delayTimer.Interval = minute * 60 * 1000;
             //delayTimer.Interval = minute * 1000;
 
@@ -818,9 +848,6 @@ namespace WindowsFormsApp1
             delayTimer.Enabled = true;
             var item = comboBox1.SelectedIndex;
             hideExerciseForm();
-        }
-
-        // Create embed url for youtube link
-      
+        }      
     }
 }
