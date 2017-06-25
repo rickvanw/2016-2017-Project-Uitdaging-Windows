@@ -121,8 +121,7 @@ namespace WindowsFormsApp1
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            // TODO enable autostartup
-            enableAutoStartup();
+            //enableAutoStartup();
         }
 
         /**
@@ -149,7 +148,7 @@ namespace WindowsFormsApp1
             if (e.Button == MouseButtons.Left)
             {
                 showExerciseForm();
-                Console.WriteLine("notify");
+                //Console.WriteLine("notify");
             }
         }
 
@@ -341,7 +340,7 @@ namespace WindowsFormsApp1
                 // Notify user, can't get from the server
                 MessageBox.Show("Kan geen gegevens ophalen van de server, neem contact op met de systeembeheerder.", "Kom in Beweging - Fout",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine("ERROR: " + e.Message);
+                //Console.WriteLine("ERROR: " + e.Message);
             }
 
         }
@@ -383,7 +382,7 @@ namespace WindowsFormsApp1
                     // Notify user, can't get from the server
                     MessageBox.Show("Kan geen gegevens sturen naar de server, neem contact op met de systeembeheerder.", "Kom in Beweging - Fout",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine("ERROR: " + response.ErrorMessage);
+                    //Console.WriteLine("ERROR: " + response.ErrorMessage);
                 }
             }
             catch (Exception e)
@@ -391,7 +390,7 @@ namespace WindowsFormsApp1
                 // Notify user, can't get from the server
                 MessageBox.Show("Kan geen gegevens sturen naar de server, neem contact op met de systeembeheerder.", "Kom in Beweging - Fout",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine("ERROR: " + e.Message);
+                //Console.WriteLine("ERROR: " + e.Message);
             }
         }
 
@@ -431,7 +430,7 @@ namespace WindowsFormsApp1
                     // Notify user, can't get from the server
                     MessageBox.Show("Kan geen gegevens sturen naar de server, neem contact op met de systeembeheerder.", "Fout",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine("ERROR: " + response.ErrorMessage);
+                    //Console.WriteLine("ERROR: " + response.ErrorMessage);
                 }
             }
             catch (Exception e)
@@ -439,7 +438,7 @@ namespace WindowsFormsApp1
                 // Notify user, can't get from the server
                 MessageBox.Show("Kan geen gegevens sturen naar de server, neem contact op met de systeembeheerder.", "Fout",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine("ERROR: " + e.Message);
+                //Console.WriteLine("ERROR: " + e.Message);
             }
 
         }
@@ -483,7 +482,7 @@ namespace WindowsFormsApp1
                 // Save treatment_exercise_id for later use
                 Globals.TreatmentExerciseID = (string)item.treatment_exercise_id;
 
-                Console.WriteLine(JSONResponse);
+                //Console.WriteLine(JSONResponse);
 
                 // Fill webbrowser for video, insert correct video url
                 exerciseVideoBrowser.DocumentText = "<!DOCTYPE html>" +
@@ -648,7 +647,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        Console.WriteLine("ERROR: empty content: " + Properties.Settings.Default.jwt);
+                        //Console.WriteLine("ERROR: empty content: " + Properties.Settings.Default.jwt);
                         return false;
                     }
                 }
@@ -827,10 +826,10 @@ namespace WindowsFormsApp1
         **/
         public void delayTimer(string timeText) {
             String minutes = timeText;
-            Console.WriteLine(minutes);
+            //Console.WriteLine(minutes);
             string[] comboboxvalue = minutes.Split(' ');
             int minute = Int32.Parse(comboboxvalue[0]);
-            Console.WriteLine(minute);
+            //Console.WriteLine(minute);
             System.Timers.Timer delayTimer;
             delayTimer = new System.Timers.Timer();
 

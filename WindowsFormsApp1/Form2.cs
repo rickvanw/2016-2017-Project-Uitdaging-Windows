@@ -111,7 +111,7 @@ namespace WindowsFormsApp1
 
             HttpStatusCode statusCode = response.StatusCode;
             int numericStatusCode = (int)statusCode;
-            Console.WriteLine("STATUS " + numericStatusCode);
+            //Console.WriteLine("STATUS " + numericStatusCode);
             var content = response.Content; // raw content as string  
 
             // Check if response is not null
@@ -136,7 +136,7 @@ namespace WindowsFormsApp1
                     {
                         // Login
                         dynamic item = Newtonsoft.Json.JsonConvert.DeserializeObject(content);
-                        Console.WriteLine((string)item.token);
+                        //Console.WriteLine((string)item.token);
                         Properties.Settings.Default.jwt = ((string)item.token);
                         Properties.Settings.Default.email = email;
                         Properties.Settings.Default.Save(); // Saves settings in application configuration file
