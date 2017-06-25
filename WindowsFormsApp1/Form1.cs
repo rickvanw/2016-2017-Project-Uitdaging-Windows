@@ -121,7 +121,7 @@ namespace WindowsFormsApp1
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            //enableAutoStartup();
+            enableAutoStartup();
         }
 
         /**
