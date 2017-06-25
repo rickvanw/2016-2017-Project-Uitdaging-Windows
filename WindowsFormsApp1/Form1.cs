@@ -122,7 +122,7 @@ namespace WindowsFormsApp1
             this.MinimizeBox = false;
 
             // TODO enable autostartup
-            //enableAutoStartup();
+            enableAutoStartup();
         }
 
         /**

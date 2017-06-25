@@ -66,6 +66,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ms-icon-310x310.png.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="aspnet_regsql">
       <HintPath>..\..\..\..\..\..\..\WINDOWS\microsoft.net\framework\v2.0.50727\aspnet_regsql.exe</HintPath>
@@ -237,6 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Wallpaper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ms-icon-310x310.png.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
